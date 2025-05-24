@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vida Sana</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      height: 100%;
+      background: linear-gradient(135deg, #b2fefa, #0ed2f7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 800px;
+      padding: 30px;
+    }
+
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3em;
+      color: #28a745;
+      margin-bottom: 10px;
+    }
+
+    h2, h3 {
+      color: #007bff;
+    }
+
+    p {
+      font-size: 1.1em;
+      color: #444;
+    }
+
+    .logo {
+      width: 150px;
+      margin: 20px auto;
+    }
+
+    button {
+      padding: 12px 25px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .question {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    select, input[type="text"], input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    ul {
+      text-align: left;
+      padding-left: 20px;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 0.9em;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Pantalla de Inicio -->
+    <section id="pantallaInicio" class="card">
+      <h1>Vida Sana</h1>
+      <p><strong>Propósito:</strong> Nuestra empresa ayuda a las personas a conocer estadísticas importantes sobre temas sociales y de salud. Lo hacemos mediante encuestas fáciles de responder y con análisis de datos previamente recolectados para apoyar la toma de decisiones.</p>
+      <img src="logoo.jpeg" alt="Logo Vida Sana" class="logo">
+      <button onclick="mostrarProyecto()">Ver el proyecto</button>
+    </section>
+
+    <!-- Proyecto Vida Sana -->
+    <section id="proyecto" class="card hidden">
+      <h2>Proyecto: Alimentación Saludable</h2>
+      <p>Este proyecto busca promover hábitos alimenticios saludables entre estudiantes. Queremos conocer tu opinión sobre la comida chatarra y las nuevas medidas para limitar su consumo en las escuelas.</p>
+      <button onclick="mostrarEncuesta()">Responder encuesta</button>
+    </section>
+
+    <!-- Encuesta -->
+    <section id="encuesta" class="card hidden">
+      <h3>Encuesta</h3>
+      <form id="formEncuesta">
+        <div class="question">
+          <label>1. ¿Consumes comida chatarra con frecuencia?</label><br>
+          <input type="radio" name="p1" value="Sí" required> Sí
+          <input type="radio" name="p1" value="No"> No
+        </div>
+        <div class="question">
+          <label>2. ¿Conoces el proyecto saludable del gobierno?</label><br>
+          <input type="radio" name="p2" value="Sí" required> Sí
+          <input type="radio" name="p2" value="No"> No
+          <input type="radio" name="p2" value="Más o menos"> Más o menos
+        </div>
+        <div class="question">
+          <label>3. ¿Qué tan de acuerdo estás con eliminar comida chatarra en escuelas?</label><br>
+          <select name="p3" required>
+            <option value="">Selecciona una opción</option>
+            <option value="1">1 - En desacuerdo</option>
+            <option value="2">2</option>
+            <option value="3">3 - Neutral</option>
+            <option value="4">4</option>
+            <option value="5">5 - Muy de acuerdo</option>
+          </select>
+        </div>
+        <div class="question">
+          <label>4. ¿Te interesaría recibir información sobre alimentación saludable?</label><br>
+          <input type="radio" name="p4" value="Sí" required> Sí
+          <input type="radio" name="p4" value="No"> No
+        </div>
+        <div class="question">
+          <label>5. ¿Qué alternativas saludables te gustaría ver en las escuelas?</label><br>
+          <input type="text" name="p5" required>
+        </div>
+        <div class="question">
+          <label>6. ¿Con qué frecuencia haces ejercicio?</label><br>
+          <select name="p6" required>
+            <option value="">Selecciona</option>
+            <option value="Diario">Diario</option>
+            <option value="2-3 veces por semana">2-3 veces por semana</option>
+            <option value="Rara vez">Rara vez</option>
+          </select>
+        </div>
+        <div class="question">
+          <label>7. ¿Tomas bebidas azucaradas diariamente?</label><br>
+          <input type="radio" name="p7" value="Sí" required> Sí
+          <input type="radio" name="p7" value="No"> No
+        </div>
+        <div class="question">
+          <label>8. ¿Lees etiquetas nutricionales?</label><br>
+          <input type="radio" name="p8" value="Sí" required> Sí
+          <input type="radio" name="p8" value="No"> No
+        </div>
+        <div class="question">
+          <label>9. ¿Compras productos con sellos de advertencia?</label><br>
+          <input type="radio" name="p9" value="Sí" required> Sí
+          <input type="radio" name="p9" value="No"> No
+        </div>
+        <div class="question">
+          <label>10. ¿Qué mejorarías de la alimentación escolar?</label><br>
+          <input type="text" name="p10" required>
+        </div>
+        <button type="submit">Enviar respuestas</button>
+      </form>
+    </section>
+
+    <!-- Resultados -->
+    <section id="resultados" class="card hidden">
+      <h3>¡Gracias por responder!</h3>
+      <p>Tus respuestas han sido guardadas con éxito.</p>
+      <ul id="listaResultados"></ul>
+      <div id="adminAccess">
+        <p><strong>¿Eres el administrador?</strong></p>
+        <input type="password" id="claveAdmin" placeholder="Ingresa la contraseña">
+        <button onclick="mostrarRespuestas()">Ver respuestas guardadas</button>
+        <div id="respuestasGuardadas" class="hidden">
+          <h4>Respuestas acumuladas:</h4>
+          <ul id="historialRespuestas"></ul>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      Proyecto desarrollado por Vida Sana | CONALEP Tampico 054
+    </footer>
+  </div>
+
+  <script>
+    function mostrarProyecto() {
+      document.getElementById('pantallaInicio').classList.add('hidden');
+      document.getElementById('proyecto').classList.remove('hidden');
+    }
+
+    function mostrarEncuesta() {
+      document.getElementById('proyecto').classList.add('hidden');
+      document.getElementById('encuesta').classList.remove('hidden');
+    }
+
+    document.getElementById('formEncuesta').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const data = new FormData(e.target);
+      const lista = document.getElementById('listaResultados');
+      const historial = document.getElementById('historialRespuestas');
+      lista.innerHTML = '';
+      let resumen = [];
+
+      for (let [key, value] of data.entries()) {
+        const li = document.createElement('li');
+        li.textContent = `${key.toUpperCase()}: ${value}`;
+        lista.appendChild(li);
+        resumen.push(`${key.toUpperCase()}: ${value}`);
+      }
+
+      let guardadas = JSON.parse(localStorage.getItem("respuestas")) || [];
+      guardadas.push(resumen);
+      localStorage.setItem("respuestas", JSON.stringify(guardadas));
+
+      document.getElementById('encuesta').classList.add('hidden');
+      document.getElementById('resultados').classList.remove('hidden');
+    });
+
+    function mostrarRespuestas() {
+      const clave = document.getElementById('claveAdmin').value;
+      if (clave === '1234') {
+        const historial = JSON.parse(localStorage.getItem("respuestas")) || [];
+        const contenedor = document.getElementById('historialRespuestas');
+        contenedor.innerHTML = '';
+        historial.forEach((grupo, i) => {
+          const item = document.createElement('li');
+          item.textContent = `#${i + 1}: ${grupo.join(' | ')}`;
+          contenedor.appendChild(item);
+        });
+        document.getElementById('respuestasGuardadas').classList.remove('hidden');
+      } else {
+        alert("Contraseña incorrecta.");
+      }
+    }
+  </script>
+</body>
+</html>
